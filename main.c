@@ -98,19 +98,17 @@ void init() // Called before main loop to set up the program
 
 // Called at the start of the program, after a glutPostRedisplay() and during idle
 // to display a frame
-void display()
-{
-    //glClearColor(0.0f, 0.0f, 0.5f, 1.0f);
+void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
-    
+
     free(lines[0]->vert1);
     free(lines[0]->vert2);
     free(lines[0]);
     
     for (int i=1; i<1000; i++) {
-        lines[i]->vert1->x -= .1;
-        lines[i]->vert2->x -= .1;
+        lines[i]->vert1->x -= .1f;
+        lines[i]->vert2->x -= .1f;
         lines[i-1] = lines[i];
         
         glBegin(GL_LINES);
@@ -118,9 +116,6 @@ void display()
         glVertex3f(lines[i-1]->vert2->x,lines[i-1]->vert2->y, lines[i-1]->vert2->z);
         glEnd();
     }
-    
-    //glColor4f(((double)*cursor)/((double)INT_MAX),1.0f,0.0f,1.0f);
-    
     lines[999] = malloc(sizeof(struct lines));
     lines[999]->vert1 = malloc(sizeof(struct vertex));
     lines[999]->vert1->x = 49.9;
@@ -128,17 +123,15 @@ void display()
     lines[999]->vert1->z = -250;
     lines[999]->vert2 = malloc(sizeof(struct vertex));
     lines[999]->vert2->x = 50.0;
-    lines[999]->vert2->y = ((double)*cursor)/(INT_MAX/10.0);
+    if (cursor != NULL) {
+        lines[999]->vert2->y = ((double)*cursor)/(INT_MAX/10.0);
+    }
     lines[999]->vert2->z = -250;
-    
-//    printf("%i", *cursor);
-    
     glutSwapBuffers();
 }
 
 // Called every time a window is resized to resize the projection matrix
-void reshape(int w, int h)
-{
+void reshape(int w, int h) {
     glViewport(0, 0, w, h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -164,6 +157,8 @@ int main(int argc, char **argv)
     int verbose = 0;
     double duration = 0.0f;
     
+    cursor = NULL;
+    
     for (int i=1; i<argc; i++) {
         if (!strcmp(argv[i], "-w")) {
             visualization = 1;
@@ -177,6 +172,10 @@ int main(int argc, char **argv)
     }
     
     lines = malloc(1000*sizeof(struct lines*));
+    
+    if (lines == NULL) {
+        return 1;
+    }
     
     for (int i=0; i<1000; i++) {
         lines[i] = malloc(sizeof(struct lines));
@@ -249,7 +248,7 @@ int main(int argc, char **argv)
     }
     
     if (visualization) {
-        glutInit(&argc, argv); // Initializes glut
+        //glutInit(&argc, argv); // Initializes glut
         
         // Sets up a double buffer with RGBA components and a depth component
         glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
@@ -259,10 +258,8 @@ int main(int argc, char **argv)
         
         // Sets the window position to the upper left
         glutInitWindowPosition(0, 0);
-        
         // Creates a window using internal glut functionality
         glutCreateWindow(filename);
-        
         // passes reshape and display functions to the OpenGL machine for callback
         glutReshapeFunc(reshape);
         glutDisplayFunc(display);
