@@ -164,7 +164,7 @@ int main(int argc, char **argv)
     double duration = 0.0f;
     
     for (int i=1; i<argc; i++) {
-        if (!strcmp(argv[i], "-v")) {
+        if (!strcmp(argv[i], "-w")) {
             visualization = 1;
         } else if (!strcmp(argv[i], "-l")) {
             loop = 1;
