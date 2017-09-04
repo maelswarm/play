@@ -7,12 +7,12 @@ Play audio files from terminal.
 
 1. [Download the rep](https://github.com/roecrew/play/archive/master.zip) or clone the rep: git clone ht&#8203;tps://git@github.com:roecrew/play.git
 2. Install the appropriate libraries.
-   *     brew install portaudio
-   *     brew install libsndfile
-   *     brew install glfw3
-   *     brew install glew
-3.     make
-4.     ./play a.wav
+   * brew install portaudio
+   * brew install libsndfile
+   * brew install glfw3
+   * brew install glew
+3. make
+4. ./play a.wav
 
 ## Flags
 
