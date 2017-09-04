@@ -1,6 +1,7 @@
 # play ![platform alt](https://img.shields.io/badge/platform-macOS-blue.svg?style=flat)
 Play audio files from terminal.
 
+![Imgur](https://i.imgur.com/0YHDKpW.png)
 
 ## Quick Start
 
