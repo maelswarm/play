@@ -161,6 +161,7 @@ int main(int argc, char **argv)
     loop = 0;
     char *filename;
     int visualization = 0;
+    int verbose = 0;
     double duration = 0.0f;
     
     for (int i=1; i<argc; i++) {
@@ -168,6 +169,8 @@ int main(int argc, char **argv)
             visualization = 1;
         } else if (!strcmp(argv[i], "-l")) {
             loop = 1;
+        } else if (!strcmp(argv[i], "-v")) {
+            verbose = 1;
         } else {
             filename = argv[i];
         }
@@ -238,6 +241,13 @@ int main(int argc, char **argv)
     
     /* when we start the stream, the callback starts getting called */
     Pa_StartStream(stream);
+    
+    if (verbose) {
+        printf("Filename: %s\n", filename);
+        printf("Duration: %f seconds\n", duration);
+        printf("Sample Rate: %d\n", sndData->sfInfo.samplerate);
+    }
+    
     if (visualization) {
         glutInit(&argc, argv); // Initializes glut
         
