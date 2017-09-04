@@ -11,3 +11,12 @@ Play audio files from terminal.
    * brew install glew
 3. make
 4. ./play a.wav
+
+## Flags
+
+* -v ... opens visualization window
+* -l ... loops audio
+
+## Supported Filetypes
+
+* See [http://www.mega-nerd.com/libsndfile/#Features](http://www.mega-nerd.com/libsndfile/#Features)
