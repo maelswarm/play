@@ -20,6 +20,8 @@ Play audio files from terminal.
 
 -l ... loops audio
 
+-v ... verbose
+
 ## Supported Filetypes
 
 See [http://www.mega-nerd.com/libsndfile/#Features](http://www.mega-nerd.com/libsndfile/#Features)
