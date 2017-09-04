@@ -16,7 +16,7 @@ Play audio files from terminal.
 
 ## Flags
 
--v ... opens visualization window
+-w ... opens visualization window
 
 -l ... loops audio
 
