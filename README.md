@@ -1,4 +1,4 @@
-# play
+# play ![platform alt](https://img.shields.io/badge/platform-macOS-blue.svg?style=flat)
 Play audio files from terminal.
 
 
