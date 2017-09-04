@@ -14,9 +14,10 @@ Play audio files from terminal.
 
 ## Flags
 
-* -v ... opens visualization window
-* -l ... loops audio
+-v ... opens visualization window
+
+-l ... loops audio
 
 ## Supported Filetypes
 
-* See [http://www.mega-nerd.com/libsndfile/#Features](http://www.mega-nerd.com/libsndfile/#Features)
+See [http://www.mega-nerd.com/libsndfile/#Features](http://www.mega-nerd.com/libsndfile/#Features)
