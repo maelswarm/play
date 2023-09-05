@@ -5,7 +5,7 @@ Play audio files from terminal.
 
 ## Quick Start
 
-1. [Download the rep](https://github.com/roecrew/play/archive/master.zip) or clone the rep: git clone ht&#8203;tps://git@github.com:roecrew/play.git
+1. [Download the rep](https://github.com/roecrew/play/archive/master.zip) or clone the rep: git clone ht&#8203;tps://git@github.com:maelswarm/play.git
 2. Install the appropriate libraries.
    * brew install portaudio
    * brew install libsndfile
